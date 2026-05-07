@@ -46,7 +46,7 @@ export default function ListView(){
 
 
     const getTasks = async ()=>{
-        const {data} = await axios.get("http://localhost:3002/api/tasks");
+        const {data} = await axios.get("http://104.64.211.71:3002/api/tasks");
         if(data.success === true && data.data.length > 0){
             const uncompleted =  
             data.data.filter(e=>e.completed === false)

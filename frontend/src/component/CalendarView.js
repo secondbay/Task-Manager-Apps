@@ -13,7 +13,7 @@ export default function CalendarView (){
     const getTasks = async ()=>{
         if(date){
 
-        const {data} = await axios.get(`http://localhost:3002/api/tasks/date/${date}`);
+        const {data} = await axios.get(`http://104.64.211.71:3002/api/tasks/date/${date}`);
         if(data.success === true){
             const uncompleted =  
             data.data.filter(e=>e.completed === false)

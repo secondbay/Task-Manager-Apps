@@ -49,7 +49,7 @@ export default function CalendarBox({value,selected,setDate}){
         let date = `${value}/${month}/${year}`;
         
         try {
-            const {data} = await axios.get(`http://localhost:3002/api/tasks/date/${date}`);
+            const {data} = await axios.get(`http://104.64.211.71:3002/api/tasks/date/${date}`);
             
             if(data.success === true && data.data.length > 0 && selected === true){
                 // TAMBAHKAN PENGECEKAN DI SINI

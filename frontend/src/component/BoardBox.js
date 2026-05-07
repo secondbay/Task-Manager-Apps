@@ -48,7 +48,7 @@ export default function BoardBox({ completed,title,category,dueDate,_id,time,des
         container.current.classList = `board_box_container closed ${category}`; 
         if(container.current.id){
             e.preventDefault();                        
-            const {data} = await axios.put(`http://localhost:3002/api/tasks/${_id}`,
+            const {data} = await axios.put(`http://104.64.211.71:3002/api/tasks/${_id}`,
             {
                 completed : !completed
             });
@@ -68,7 +68,7 @@ export default function BoardBox({ completed,title,category,dueDate,_id,time,des
         
     }
     const removeTask = async ()=>{
-        const {data} = await axios.delete(`http://localhost:3002/api/tasks/${_id}`);
+        const {data} = await axios.delete(`http://104.64.211.71:3002/api/tasks/${_id}`);
         if(data.success){
             notification(currentValue=>{
                 if(currentValue){
