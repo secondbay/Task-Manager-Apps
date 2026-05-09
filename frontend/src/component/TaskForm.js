@@ -25,7 +25,7 @@ const TaskForm = forwardRef( ({reRendertasks},ref)=>{
             path: pathInput.current.value == "" ? "/": pathInput.current.value.replace("C:\\fakepath\\","uploads/")
         }
         try{
-            const {data} = await axios.post("http://104.64.211.71:3002/api/tasks/add",task);
+            const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/api/tasks/add`,task);
             if(data.success === true){
                 notification(currentValue=>{
                     if(currentValue){
@@ -37,7 +37,7 @@ const TaskForm = forwardRef( ({reRendertasks},ref)=>{
                 const img = document.querySelector('input[type="file"]').files[0];
                 if(img){
                     const {data} =  await axios.post(
-                        "http://104.64.211.71:3002/api/tasks/upload",
+                        `${process.env.REACT_APP_API_URL}/api/tasks/upload`,
                         {
                             image:img
                         },

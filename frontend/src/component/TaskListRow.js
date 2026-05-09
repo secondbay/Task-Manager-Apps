@@ -29,7 +29,7 @@ export default function TaskListRow({completed,title,category,dueDate,_id,time,d
         
     }
     const removeTask = async ()=>{
-        const {data} = await axios.delete(`http://104.64.211.71:3002/api/tasks/${_id}`);
+        const {data} = await axios.delete(`${process.env.REACT_APP_API_URL}/api/tasks/${_id}`);
         if(data.success){
             notification(currentValue=>{
                 if(currentValue){
@@ -48,7 +48,7 @@ export default function TaskListRow({completed,title,category,dueDate,_id,time,d
         if(e){
             e.preventDefault();                        
         }
-        const {data} = await axios.put(`http://104.64.211.71:3002/api/tasks/${_id}`,
+        const {data} = await axios.put(`${process.env.REACT_APP_API_URL}/api/tasks/${_id}`,
         {
             completed : !completed
         });
